@@ -1,0 +1,50 @@
+body {
+    color: #000000;
+    font-family: 'Mukta', sans-serif;
+}
+
+h1 {
+    color: #0C6409;
+    font-size: 3.5em;
+}
+
+a {
+    color: #0C6409;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.examples {
+    max-width: 600px;
+}
+
+.count-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+button, input[type=submit] {
+    width: 100px;
+}
+
+.tweet-button {
+    align-self: flex-end;
+}
+
+#raw-text {
+    border: 1px solid;
+    min-height: 100px;
+}
+
+footer {
+    display: flex;
+    justify-content: flex-end;
+}

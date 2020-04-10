@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clap Money</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Mukta&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Clap Money</h1>
+        <p>An interactive look at unicode characters and digital accessibility</p>
+    </header>
+
+    <main>
+        <section class="examples flex-column" id="emoji">
+            <form class="flex-column">
+                <label for="emoji-text">Use this box to add the <span role="img" aria-label="clap">&#128079;</span> emoji to the end of every word.</label>
+                <textarea id="emoji-text"></textarea>
+                <div class="count-container">
+                    <input id="emoji-submit" type="submit" value="Listen" />
+                    <span id="character-count">0/200</span>
+                </div>
+            </form>
+            <button class="tweet-button" type="button">Tweet</button>
+        </section>
+
+        <section class="examples flex-column" id="raw">
+            <p>Without emojis: </p>
+            <p id="raw-text"></p>
+            <button type="button">Listen</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made with <span role="img" aria-label="love">&#10084;&#65039;</span> by <a href="https://leoyockey.com">Leo Yockey</a>.</p>
+    </footer>
+</body>
+</html>

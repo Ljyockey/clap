@@ -35,11 +35,11 @@ button, input[type=submit] {
     width: 100px;
 }
 
-.tweet-button {
+.flex-end-self {
     align-self: flex-end;
 }
 
-#raw-text {
+.dynamic-examples {
     border: 1px solid;
     min-height: 100px;
 }

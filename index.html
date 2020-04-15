@@ -15,8 +15,19 @@
 
     <main>
         <section class="examples flex-column" id="emoji">
+            <h2>Adding emojis to the end of every word.</h2>
+            <p>
+                Emojis have become a fun way to communicate. One of the most entertaining uses, to me, has always been the clapping hands in between words: 
+                <img src="img/tweet-2.png" alt="screenshot of tweet that reads, 'I am so ready to go home', with a clapping-hands emoji in betwwen each word. The identity of the tweeter has been concealed for privacy" /> 
+                Emojis are a great way to convey text and tone. The clapping-hands emoji in between each word has always been my favorite way to show exasperation.
+            </p>
+            <p>
+                The problem is that emojis can make content difficult to parse when using assistive technology (AT) such as a screenreader. &nbsp; 
+                Most people who use screenreaders have reported some sort of disability (click <a href="https://webaim.org/projects/screenreadersurvey8/">here</a> for an annual report on screenreader usage). &nbsp;
+                Let's see how unedited emojis sound to a screenreader.
+            </p>
             <form class="flex-column" id="form">
-                <label for="emoji-text">Use this box to add the <span role="img" aria-label="clap">&#128079;</span> emoji to the end of every word.</label>
+                <label for="emoji-text">Type anything and I'll add the <span role="img" aria-label="clap">&#128079;</span> emoji to the end of every word.</label>
                 <textarea id="emoji-text" maxlength="194"></textarea>
                 <div class="count-container">
                     <input id="emoji-submit" type="submit" value="Listen" />
@@ -29,15 +40,30 @@
         </section>
 
         <section class="examples flex-column" id="rendered">
-            <p>With properly rendered emojis: </p>
-            <p id="rendered-text" class="dynamic-examples"></p>
-            <button id="rendered-text-button" type="button">Listen</button>
+            <h2>Emojis rendered properly</h2>
+            <p>Frontend developers interested in accessiblity may have seen code examples that take advantage of the role and aria-label attributes available to an element, as well as the unicode for the emoji:
+                <code>
+                    [TODO: add code snippet of span here]
+                </code>
+                Many people pat themselves on the back at this point. The problem is that an accessible website might not be usable for people with disbilities. 
+                The word "image" will be appended to the end of your label. It would still be difficult to read an entire sentence.
+                <span id="rendered-text" class="dynamic-examples"></span>
+                <button id="rendered-text-button" type="button">Listen</button>
+            </p>
         </section>
 
         <section class="examples flex-column" id="raw">
-            <p>Without emojis: </p>
-            <p id="raw-text" class="dynamic-examples"></p>
-            <button id="raw-text-button" type="button">Listen</button>
+            <h2>No emojis</h2>
+            <p>
+                Like all important information, it's good to stick with the substance and remove emojis.
+                <span id="raw-text" class="dynamic-examples"></span>
+                <button id="raw-text-button" type="button">Listen</button>
+            </p>
+            <h3>Moderation is key</h3>
+            People both with and without disabilities use emojis as a fun form of communication. 
+            It's important that we as developers take on the burden of ensuring that our content is readable and meaningful to the entirety of its audience. 
+            Maybe we can avoid all tweets like this in the future: 
+            <img src="img/tweet-1.png" alt="screenshot of tweet consisting of approximately 127 and 3 heart emojis, followed by #ThanksHealthHeroes. There is also an image feature the same hashtag in decorated font. The identity of the tweeter has been concealed for privacy"
         </section>
     </main>
 

@@ -7,9 +7,11 @@ body {
 
 h1 {
     font-size: 3.5em;
+    position: relative;
+    display: inline;
 }
 
-a, h1, h2, h3 {
+a, h1, h3, h4 {
     color: #0C6409;
 }
 
@@ -26,11 +28,37 @@ img {
     margin: 0 auto;
 }
 
-main {
+hr {
+    height: 1px;
+    background-color: #F2F2F2;
+    border: none;
+}
+
+#emoji {
+    margin-bottom: 30px;
+}
+
+section {
     background: #FFF;
     box-shadow: 0 0 10px;
     padding: 5px;
     text-align: center;
+}
+
+section:first-child {
+    margin-bottom: 50px;
+}
+
+.credit {
+    position: absolute;
+    right: 0;
+    bottom: -10px;
+    font-size: 0.3em;
+    color: #000;
+}
+
+.subheader {
+    margin-top: 35px;
 }
 
 .flex-column {
@@ -52,7 +80,7 @@ button, input[type=submit] {
     align-self: flex-end;
 }
 
-#tweet-link {
+.tweet-link {
     background-color: #1da1f2;
     color: #fff;
     padding: 10px;
@@ -73,13 +101,23 @@ footer {
 }
 
 @media screen and (min-width: 640px) { 
-    main {
+    section {
         width: 70%;
-        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
         padding: 15px;
     }
 
     header {
         text-align: center;
+    }
+
+    .subheader {
+        margin-top: 50px;
+    }
+
+    .examples p, .examples form, .gist {
+        padding-left: 150px;
+        padding-right: 150px;
     }
 }

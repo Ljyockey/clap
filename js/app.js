@@ -1,7 +1,7 @@
 let textarea, emojiSpan, characterCount;
 
 const emojiString = `<span role="img" aria-label="clap">&#128079;</span>`;
-const tweetEnd = '\n\nHear how this sounds with a screenreader at https://clap.money, by @Ljyockey. #a11y'
+const tweetEnd = '\n\nAdd emojis to the end of each word at https://clap.money, by @Ljyockey.'
 
 // encodes all characters encoded with encodeURIComponent, plus: ! ~ * ' ( )
 function fullyEncodeURI (value) {
@@ -19,9 +19,9 @@ function onFormSubmit (e) {
     textToSpeech(textarea.value);
 }
 
-function refreshCharacterCount () {
-    const len = textarea.value.trim().length;
-    characterCount.innerHTML = len + '/194';
+function refreshCharacterCount (id) {
+    const len = document.getElementById(id).value.trim().length;
+    characterCount.innerHTML = len + '/205';
 }
 
 function replaceEmojis(replacer) {
@@ -36,30 +36,31 @@ function refreshOtherExamples () {
     document.getElementById('raw-text').innerHTML = replaceEmojis('');
 }
 
-function refreshTwitterData () {
+function refreshTwitterData (id) {
     const urlSeparator = '&text='
 
-    const v = textarea.value.trim();
-    const link = document.getElementById('tweet-link');
+    const v = document.getElementById(id).value.trim();
+    const link = document.getElementById(`tweet-link${id.split('-')[2] ? '-universal' : ''}`);
 
     const baseHref = link.href.split(urlSeparator)[0];
     const tweet = fullyEncodeURI(v + tweetEnd);
+    console.log('new href', baseHref + urlSeparator + tweet)
     link.setAttribute('href', baseHref + urlSeparator + tweet);
 }
 
-function refreshViews () {
-    refreshCharacterCount();
+function refreshViews (targetId) {
+    refreshCharacterCount(targetId);
     refreshOtherExamples();
-    refreshTwitterData();
+    refreshTwitterData(targetId);
 }
 
-function onTextareaChange ({key}) {
-    const len = textarea.value.length;
-    if (key === ' ' && len < 194) {
-        textarea.value = textarea.value += emojiSpan.innerHTML + ' ';
+function onTextareaChange ({key, target}) {
+    const len = target.value.length;
+    if (key === ' ' && len < 205) {
+        target.value = target.value += emojiSpan.innerHTML + ' ';
     }
 
-    refreshViews();
+    refreshViews(target.id);
 }
 
 function createEmoji () {
@@ -96,11 +97,13 @@ function init () {
     emojiSpan = createEmoji();
     
     textarea.addEventListener('keyup', onTextareaChange);
+    document.getElementById('emoji-text-universal').addEventListener('keyup', onTextareaChange);
     document.getElementById('form').addEventListener('submit', onFormSubmit);
     document.getElementById('raw-text-button').addEventListener('click', onExampleButtonClick);
     document.getElementById('rendered-text-button').addEventListener('click', onExampleButtonClick);
 
-    refreshViews();
+    refreshTwitterData('emoji-text');
+    refreshTwitterData('emoji-text-universal');
 }
 
 document.addEventListener('DOMContentLoaded', init);

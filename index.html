@@ -9,61 +9,88 @@
 </head>
 <body>
     <header>
-        <h1>Clap Money</h1>
-        <p>An interactive look at unicode characters and digital accessibility</p>
+        <h1>Clap Money
+            <span class="credit">by <a href="https://leoyockey.com">Leo Yockey</a></span>
+        </h1>
+        <p class="subheader">An interactive look at unicode characters and digital accessibility</p>
     </header>
 
     <main>
-        <section class="examples flex-column" id="emoji">
-            <h2>Adding emojis to the end of every word.</h2>
-            <p>
-                Emojis have become a fun way to communicate. One of the most entertaining uses, to me, has always been the clapping hands in between words: 
-                <img src="img/tweet-2.png" alt="screenshot of tweet that reads, 'I am so ready to go home', with a clapping-hands emoji in betwwen each word. The identity of the tweeter has been concealed for privacy" /> 
-                Emojis are a great way to convey text and tone. The clapping-hands emoji in between each word has always been my favorite way to show exasperation.
-            </p>
-            <h3>The Problem</h3>
-            <p>
-                The problem is that emojis can make content difficult to parse when using assistive technology (AT) such as a screenreader. &nbsp; 
-                Most people who use screenreaders have reported some sort of disability (click <a href="https://webaim.org/projects/screenreadersurvey8/">here</a> for an annual report on screenreader usage). &nbsp;
-                Let's see how unedited emojis sound to a screenreader.
-            </p>
-            <form class="flex-column" id="form">
-                <label for="emoji-text">Type anything and I'll add the <span role="img" aria-label="clap">&#128079;</span> emoji to the end of every word.</label>
-                <textarea id="emoji-text" maxlength="194"></textarea>
-                <div class="count-container">
-                    <input id="emoji-submit" type="submit" value="Listen" />
-                    <span id="character-count">0/194</span>
-                </div>
-                <a id="tweet-link" class="flex-end-self" href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&tw_p=tweetbutton&text=%0A#a11y%20hear%20how%20this%20sounds%20with%20a%20screenreader%20at%20clap.money,%20by%20@Ljyockey">
-                    Tweet
-                </a>
-            </form>
+        <section>
+            <div class="examples flex-column" id="universal">
+                <h2>Add an Emoji to the End of Every Word</h2>
+                <form class="flex-column" id="form">
+                    <label for="emoji-text">Type anything and I'll add the <span role="img" aria-label="clap">&#128079;</span> emoji to the end of every word.</label>
+                    <textarea id="emoji-text-universal" maxlength="205"></textarea>
+                    <div class="count-container">
+                        <span id="character-count">0/205</span>
+                        <a id="tweet-link-universal" class="flex-end-self tweet-link" href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&tw_p=tweetbutton&text=%0A#a11y%20hear%20how%20this%20sounds%20with%20a%20screenreader%20at%20clap.money,%20by%20@Ljyockey">
+                            Tweet
+                        </a>
+                    </div>
+                </form>
+            </div>
         </section>
+        <section>
+            <div class="examples flex-column" id="emoji">
+                <h2>Emojis and Digital Accessibility</h2>
+                <p>
+                    Emojis have become a fun way to communicate. One of the most entertaining uses, to me, has always been the clapping hands in between words: 
+                    <img src="img/tweet-2.png" alt="screenshot of tweet that reads, 'I am so ready to go home', with a clapping-hands emoji in betwwen each word. The identity of the tweeter has been concealed for privacy" /> 
+                    Emojis are a great way to convey text and tone. The clapping-hands emoji in between each word has always been my favorite way to show exasperation.
+                </p>
+                <h3>The Problem</h3>
+                <p>
+                    The problem is that emojis can make content difficult to parse when using assistive technology (AT) such as a screenreader. &nbsp; 
+                    Most people who use screenreaders have reported some sort of disability (click <a href="https://webaim.org/projects/screenreadersurvey8/">here</a> for an annual report on screenreader usage). &nbsp;
+                    Let's see how unedited emojis sound to a screenreader.
+                </p>
+                <form class="flex-column" id="form">
+                    <label for="emoji-text">Type anything and I'll add the <span role="img" aria-label="clap">&#128079;</span> emoji to the end of every word.</label>
+                    <textarea id="emoji-text" maxlength="205"></textarea>
+                    <div class="count-container">
+                        <input id="emoji-submit" type="submit" value="Listen" />
+                        <span id="character-count">0/205</span>
+                    </div>
+                    <a id="tweet-link" class="flex-end-self tweet-link" href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&tw_p=tweetbutton&text=%0A#a11y%20hear%20how%20this%20sounds%20with%20a%20screenreader%20at%20clap.money,%20by%20@Ljyockey">
+                        Tweet
+                    </a>
+                </form>
+            </div>
 
-        <section class="examples flex-column" id="rendered">
-            <h2>Emojis rendered properly</h2>
-            <p>
-                Frontend developers interested in accessiblity may have seen code examples that take advantage of the role and aria-label attributes available to an element, as well as the unicode for the emoji:
-                <script src="https://gist.github.com/Ljyockey/6af24f743a82971e50590a238a81cc69.js"></script>
-                Many people pat themselves on the back at this point. The problem is that an accessible website might not be usable for people with disbilities. 
-                The word "image" will be appended to the end of your label. It would still be difficult to read an entire sentence.
-                <span id="rendered-text" class="dynamic-examples"></span>
-                <button id="rendered-text-button" type="button">Listen</button>
-            </p>
-        </section>
+            <hr />
 
-        <section class="examples flex-column" id="raw">
-            <h2>No emojis</h2>
-            <p>
-                Like all important information, it's good to stick with the substance and remove emojis.
-                <span id="raw-text" class="dynamic-examples"></span>
-                <button id="raw-text-button" type="button">Listen</button>
-            </p>
-            <h3>Moderation is key</h3>
-            People both with and without disabilities use emojis as a fun form of communication. 
-            It's important that we as developers take on the burden of ensuring that our content is readable and meaningful to the entirety of its audience. 
-            Maybe we can avoid all tweets like this in the future: 
-            <img src="img/tweet-1.png" alt="screenshot of tweet consisting of approximately 127 and 3 heart emojis, followed by #ThanksHealthHeroes. There is also an image feature the same hashtag in decorated font. The identity of the tweeter has been concealed for privacy"
+            <div class="examples flex-column" id="rendered">
+                <h3>Emojis rendered properly</h3>
+                <p>
+                    Frontend developers interested in accessiblity may have seen code examples that take advantage of the role and aria-label attributes available to an element, as well as the unicode for the emoji:
+                </p>
+                    <script src="https://gist.github.com/Ljyockey/6af24f743a82971e50590a238a81cc69.js"></script>
+                <p>
+                    Many people pat themselves on the back at this point. The problem is that an accessible website might not be usable for people with disbilities. 
+                    The word "image" will be appended to the end of your label. It would still be difficult to read an entire sentence.
+                    <span id="rendered-text" class="dynamic-examples"></span>
+                    <button id="rendered-text-button" type="button">Listen</button>
+                </p>
+            </div>
+
+            <hr />
+
+            <div class="examples flex-column" id="raw">
+                <h3>No emojis</h3>
+                <p>
+                    Like all important information, it's good to stick with the substance and remove emojis.
+                    <span id="raw-text" class="dynamic-examples"></span>
+                    <button id="raw-text-button" type="button">Listen</button>
+                </p>
+                <h4>Moderation is key</h4>
+                <p>
+                    People both with and without disabilities use emojis as a fun form of communication. 
+                    It's important that we as developers take on the burden of ensuring that our content is readable and meaningful to the entirety of its audience. 
+                    Maybe we can avoid all tweets like this in the future: 
+                    <img src="img/tweet-1.png" alt="screenshot of tweet consisting of approximately 127 and 3 heart emojis, followed by #ThanksHealthHeroes. There is also an image feature the same hashtag in decorated font. The identity of the tweeter has been concealed for privacy" />
+                </p>
+            </div>
         </section>
     </main>
 
@@ -81,6 +108,5 @@
         gtag('config', 'UA-163838275-1');
     </script>
     <script src="js/ga.js" type="text/javascript"></script>
-    <script data-ad-client="ca-pub-6467046836339589" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </body>
 </html>

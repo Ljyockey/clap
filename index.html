@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clap Money</title>
     <link rel="stylesheet" href="main.css">
-    <link href="https://fonts.googleapis.com/css?family=Mukta&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Mukta:400,700,400italic,700italic&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -33,16 +33,15 @@
         </section>
         <section>
             <div class="examples flex-column" id="emoji">
-                <h2>Emojis and Digital Accessibility</h2>
+                <h2>Emojis and Digital Accessibility (A11y)</h2>
                 <p>
-                    Emojis have become a fun way to communicate. One of the most entertaining uses, to me, has always been the clapping hands in between words: 
                     <img src="img/tweet-2.png" alt="screenshot of tweet that reads, 'I am so ready to go home', with a clapping-hands emoji in betwwen each word. The identity of the tweeter has been concealed for privacy" /> 
-                    Emojis are a great way to convey text and tone. The clapping-hands emoji in between each word has always been my favorite way to show exasperation.
+                    Emojis have become a fun way to communicate. They are a great way to convey text and tone. The clapping-hands emoji in between each word has always been my favorite way to show exasperation.
                 </p>
                 <h3>The Problem</h3>
                 <p>
                     The problem is that emojis can make content difficult to parse when using assistive technology (AT) such as a screenreader. &nbsp; 
-                    Most people who use screenreaders have reported some sort of disability (click <a href="https://webaim.org/projects/screenreadersurvey8/">here</a> for an annual report on screenreader usage). &nbsp;
+                    Most people who use screenreaders have reported some sort of disability (click <a href="https://webaim.org/projects/screenreadersurvey8/">here</a> for an annual report on screenreader usage); it's important they aren't forgotten. &nbsp;
                     Let's see how unedited emojis sound to a screenreader.
                 </p>
                 <form class="flex-column" id="speech-form">
@@ -63,12 +62,12 @@
             <div class="examples flex-column" id="rendered">
                 <h3>Emojis rendered properly</h3>
                 <p>
-                    Frontend developers interested in accessiblity may have seen code examples that take advantage of the role and aria-label attributes available to an element, as well as the unicode for the emoji:
+                    Frontend developers interested in a11y may have seen code examples that take advantage of the role and aria-label attributes available to an element, as well as the unicode for the emoji:
                 </p>
                     <script src="https://gist.github.com/Ljyockey/6af24f743a82971e50590a238a81cc69.js"></script>
                 <p>
-                    Many people pat themselves on the back at this point. The problem is that an accessible website might not be usable for people with disbilities. 
-                    The word "image" will be appended to the end of your label. It would still be difficult to read an entire sentence.
+                    Remember, an accessible website might not be <em>usable</em> for people with disbilities. 
+                    The word "image" will be appended to the end of your label. Unlike our eyes, ATs has no way of knowing which characters should be read and which our decorative, so it reads them all. It would still be difficult to read an entire sentence.
                     <span id="rendered-text" class="dynamic-examples"></span>
                     <button id="rendered-text-button" type="button">Listen</button>
                 </p>
@@ -79,14 +78,14 @@
             <div class="examples flex-column" id="raw">
                 <h3>No emojis</h3>
                 <p>
-                    Like all important information, it's good to stick with the substance and remove emojis.
+                    Like all important information, it's best to remove emojis so that the substance of your text can be understood clearly to all readers.
                     <span id="raw-text" class="dynamic-examples"></span>
                     <button id="raw-text-button" type="button">Listen</button>
                 </p>
                 <h4>Moderation is key</h4>
                 <p>
-                    People both with and without disabilities use emojis as a fun form of communication. 
-                    It's important that we as developers take on the burden of ensuring that our content is readable and meaningful to the entirety of its audience. 
+                    People both with and without disabilities use emojis as a fun form of communication. They're not going away, nor should they! 
+                    <strong>It's important that we as developers take on the burden</strong> of ensuring that our content is readable and meaningful to the entirety of its audience. 
                     Maybe we can avoid all tweets like this in the future: 
                     <img src="img/tweet-1.png" alt="screenshot of tweet consisting of approximately 127 and 3 heart emojis, followed by #ThanksHealthHeroes. There is also an image feature the same hashtag in decorated font. The identity of the tweeter has been concealed for privacy" />
                 </p>

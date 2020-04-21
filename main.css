@@ -6,13 +6,21 @@ body {
 }
 
 h1 {
-    font-size: 3.5em;
+    font-size: 4em;
     position: relative;
     display: inline;
 }
 
 a, h1, h2, h3, h4 {
-    color: #0C6409;
+    color: #065E0A;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+h4 {
+    font-size: 1.2em;
 }
 
 a:hover {
@@ -91,8 +99,10 @@ button, input[type=submit] {
 }
 
 .dynamic-examples {
-    border: 1px solid;
     min-height: 100px;
+    background: #F2F2F2;
+    padding: 10px;
+    margin-top: 15px;
 }
 
 footer {
@@ -101,6 +111,10 @@ footer {
 }
 
 @media screen and (min-width: 640px) { 
+    h1 {
+        font-size: 4.5em;
+    }
+
     section {
         width: 70%;
         margin-left: auto;
@@ -110,6 +124,14 @@ footer {
 
     header {
         text-align: center;
+    }
+
+    p, label {
+        font-size: 20px;
+    }
+
+    .dynamic-examples {
+        padding: 25px;
     }
 
     .subheader {

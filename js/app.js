@@ -44,7 +44,6 @@ function refreshTwitterData (id) {
 
     const baseHref = link.href.split(urlSeparator)[0];
     const tweet = fullyEncodeURI(v + tweetEnd);
-    console.log('new href', baseHref + urlSeparator + tweet)
     link.setAttribute('href', baseHref + urlSeparator + tweet);
 }
 
@@ -98,7 +97,7 @@ function init () {
     
     textarea.addEventListener('keyup', onTextareaChange);
     document.getElementById('emoji-text-universal').addEventListener('keyup', onTextareaChange);
-    document.getElementById('form').addEventListener('submit', onFormSubmit);
+    document.getElementById('speech-form').addEventListener('submit', onFormSubmit);
     document.getElementById('raw-text-button').addEventListener('click', onExampleButtonClick);
     document.getElementById('rendered-text-button').addEventListener('click', onExampleButtonClick);
 
